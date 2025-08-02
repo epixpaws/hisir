@@ -107,7 +107,7 @@ TitleText.Name = "TitleText"
 TitleText.Size = UDim2.new(1, -120, 1, 0)
 TitleText.Position = UDim2.new(0, 20, 0, 0)
 TitleText.BackgroundTransparency = 1
-TitleText.Text = "🍎 Apple Admin"
+TitleText.Text = "Apple Admin"
 TitleText.TextColor3 = COLORS.TEXT
 TitleText.TextSize = 24
 TitleText.Font = Enum.Font.GothamBold
@@ -120,7 +120,7 @@ CloseButton.Name = "CloseButton"
 CloseButton.Size = UDim2.new(0, 40, 0, 40)
 CloseButton.Position = UDim2.new(1, -50, 0, 10)
 CloseButton.BackgroundColor3 = COLORS.DESTRUCTIVE
-CloseButton.Text = "✕"
+CloseButton.Text = "X"
 CloseButton.TextColor3 = COLORS.PRIMARY
 CloseButton.TextSize = 18
 CloseButton.Font = Enum.Font.GothamBold
@@ -195,7 +195,7 @@ local BannedPlayers = {}
 local WarnedPlayers = {}
 
 -- Create Navigation Button
-local function createNavButton(text, icon, layoutOrder, callback)
+local function createNavButton(text, layoutOrder, callback)
     local Button = Instance.new("TextButton")
     Button.Name = text .. "Button"
     Button.Size = UDim2.new(1, 0, 0, 45)
@@ -210,22 +210,10 @@ local function createNavButton(text, icon, layoutOrder, callback)
     ButtonCorner.CornerRadius = UDim.new(0, 12)
     ButtonCorner.Parent = Button
     
-    local IconLabel = Instance.new("TextLabel")
-    IconLabel.Name = "Icon"
-    IconLabel.Size = UDim2.new(0, 30, 1, 0)
-    IconLabel.Position = UDim2.new(0, 15, 0, 0)
-    IconLabel.BackgroundTransparency = 1
-    IconLabel.Text = icon
-    IconLabel.TextColor3 = COLORS.ACCENT
-    IconLabel.TextSize = 18
-    IconLabel.Font = Enum.Font.GothamBold
-    IconLabel.TextXAlignment = Enum.TextXAlignment.Center
-    IconLabel.Parent = Button
-    
     local TextLabel = Instance.new("TextLabel")
     TextLabel.Name = "Text"
-    TextLabel.Size = UDim2.new(1, -50, 1, 0)
-    TextLabel.Position = UDim2.new(0, 45, 0, 0)
+    TextLabel.Size = UDim2.new(1, -30, 1, 0)
+    TextLabel.Position = UDim2.new(0, 15, 0, 0)
     TextLabel.BackgroundTransparency = 1
     TextLabel.Text = text
     TextLabel.TextColor3 = COLORS.TEXT
@@ -237,12 +225,12 @@ local function createNavButton(text, icon, layoutOrder, callback)
     -- Hover Animation
     Button.MouseEnter:Connect(function()
         TweenService:Create(Button, ANIMATIONS.FAST, {BackgroundTransparency = 0.6}):Play()
-        TweenService:Create(IconLabel, ANIMATIONS.FAST, {TextColor3 = COLORS.PRIMARY}):Play()
+        TweenService:Create(TextLabel, ANIMATIONS.FAST, {TextColor3 = COLORS.ACCENT}):Play()
     end)
     
     Button.MouseLeave:Connect(function()
         TweenService:Create(Button, ANIMATIONS.FAST, {BackgroundTransparency = 0.8}):Play()
-        TweenService:Create(IconLabel, ANIMATIONS.FAST, {TextColor3 = COLORS.ACCENT}):Play()
+        TweenService:Create(TextLabel, ANIMATIONS.FAST, {TextColor3 = COLORS.TEXT}):Play()
     end)
     
     -- Click Animation
@@ -384,7 +372,7 @@ end
 -- Dashboard Content
 local function setupDashboard()
     -- Server Stats Card
-    local StatsCard, StatsContent = createCard(DashboardPage, "📊 Server Statistics", "")
+    local StatsCard, StatsContent = createCard(DashboardPage, "Server Statistics", "")
     
     local StatsLayout = Instance.new("UIListLayout")
     StatsLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -416,7 +404,7 @@ local function setupDashboard()
     UptimeLabel.Parent = StatsContent
     
     -- Quick Actions Card
-    local ActionsCard, ActionsContent = createCard(DashboardPage, "⚡ Quick Actions", "")
+    local ActionsCard, ActionsContent = createCard(DashboardPage, "Quick Actions", "")
     ActionsCard.LayoutOrder = 2
     
     local ActionsLayout = Instance.new("UIListLayout")
@@ -567,7 +555,7 @@ end
 -- Server Management
 local function setupServerManagement()
     -- Server Announcement Card
-    local AnnouncementCard, AnnouncementContent = createCard(ServerPage, "📢 Server Announcements", "")
+    local AnnouncementCard, AnnouncementContent = createCard(ServerPage, "Server Announcements", "")
     
     local AnnouncementInput = Instance.new("TextBox")
     AnnouncementInput.Name = "AnnouncementInput"
@@ -605,7 +593,7 @@ local function setupServerManagement()
     SendButton.Position = UDim2.new(1, -120, 0, 0)
     
     -- Server Controls Card
-    local ControlsCard, ControlsContent = createCard(ServerPage, "🎮 Server Controls", "")
+    local ControlsCard, ControlsContent = createCard(ServerPage, "Server Controls", "")
     ControlsCard.LayoutOrder = 2
     
     local ControlsLayout = Instance.new("UIListLayout")
@@ -636,7 +624,7 @@ end
 
 -- Live Events System
 local function setupLiveEvents()
-    local EventsCard, EventsContent = createCard(EventsPage, "🔴 Live Events", "")
+    local EventsCard, EventsContent = createCard(EventsPage, "Live Events", "")
     
     local EventsList = Instance.new("ScrollingFrame")
     EventsList.Name = "EventsList"
@@ -701,7 +689,7 @@ end
 
 -- Settings
 local function setupSettings()
-    local SettingsCard, SettingsContent = createCard(SettingsPage, "⚙️ GUI Settings", "")
+    local SettingsCard, SettingsContent = createCard(SettingsPage, "GUI Settings", "")
     
     local SettingsLayout = Instance.new("UIListLayout")
     SettingsLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -735,11 +723,11 @@ local function setupSettings()
 end
 
 -- Create Navigation Buttons
-createNavButton("Dashboard", "📊", 1, function() showPage(DashboardPage) end)
-createNavButton("Players", "👥", 2, function() showPage(PlayersPage) end)
-createNavButton("Server", "🖥️", 3, function() showPage(ServerPage) end)
-createNavButton("Live Events", "🔴", 4, function() showPage(EventsPage) end)
-createNavButton("Settings", "⚙️", 5, function() showPage(SettingsPage) end)
+createNavButton("Dashboard", 1, function() showPage(DashboardPage) end)
+createNavButton("Players", 2, function() showPage(PlayersPage) end)
+createNavButton("Server", 3, function() showPage(ServerPage) end)
+createNavButton("Live Events", 4, function() showPage(EventsPage) end)
+createNavButton("Settings", 5, function() showPage(SettingsPage) end)
 
 -- Setup all pages
 setupDashboard()
@@ -790,5 +778,5 @@ end)
 wait(0.5)
 toggleGUI()
 
-print("🍎 Apple Admin GUI loaded successfully!")
+print("Apple Admin GUI loaded successfully!")
 print("Press Right Control to toggle the GUI")

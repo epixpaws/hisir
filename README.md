@@ -1,35 +1,35 @@
-# 🍎 Apple-Inspired Roblox Admin GUI
+# Apple-Inspired Roblox Admin GUI
 
 A modern, sleek admin GUI for Roblox with Apple-inspired design language, featuring smooth animations, blurred backgrounds, and comprehensive admin tools.
 
-## ✨ Features
+## Features
 
-### 🎨 Apple-Style Design
+### Apple-Style Design
 - **Dark Theme**: Modern dark gray color scheme matching Apple's design language
 - **Blur Effects**: Beautiful background blur when GUI is open
 - **Smooth Animations**: Spring-based animations with Apple-style easing
 - **Rounded Corners**: Consistent 8-20px radius throughout the interface
 - **Modern Typography**: Clean Gotham font with proper hierarchy
 
-### 👥 Player Management
+### Player Management
 - **Real-time Player List**: Live updating player cards with avatars
 - **Player Actions**:
-  - 🦵 **Kick**: Remove players from the server
-  - 🚫 **Ban**: Permanently ban players (stored in session)
-  - ⚠️ **Warn**: Issue warnings to players (with counter)
-  - 📍 **Teleport**: Teleport players to your location
+  - **Kick**: Remove players from the server
+  - **Ban**: Permanently ban players (stored in session)
+  - **Warn**: Issue warnings to players (with counter)
+  - **Teleport**: Teleport players to your location
 - **Player Info**: Display names, usernames, and User IDs
 - **Admin Protection**: Admins cannot be targeted by actions
 
-### 🖥️ Server Management
-- **📢 Server Announcements**: Send styled messages to all players
-- **🎮 Server Controls**:
+### Server Management
+- **Server Announcements**: Send styled messages to all players
+- **Server Controls**:
   - Mass kick all non-admin players
   - Server lock functionality
   - Data reset capabilities
   - GUI refresh option
 
-### 🔴 Live Events System
+### Live Events System
 - **Real-time Monitoring**: Track all server events as they happen
 - **Event Types**:
   - Player joins/leaves
@@ -38,12 +38,12 @@ A modern, sleek admin GUI for Roblox with Apple-inspired design language, featur
 - **Timestamped Logs**: All events include precise timestamps
 - **Color-coded Events**: Different colors for different event types
 
-### 📊 Dashboard
+### Dashboard
 - **Server Statistics**: Live player count and uptime
 - **Quick Actions**: One-click access to common admin functions
 - **System Status**: Monitor server health and performance
 
-## 🚀 Installation
+## Installation
 
 1. **Open Roblox Studio**
 2. **Create a ServerScript** in ServerScriptService
@@ -51,7 +51,7 @@ A modern, sleek admin GUI for Roblox with Apple-inspired design language, featur
 4. **Configure Admin Users** (see Configuration section)
 5. **Run the game** to test
 
-## ⚙️ Configuration
+## Configuration
 
 ### Adding Admins
 
@@ -91,7 +91,7 @@ local ANIMATIONS = {
 }
 ```
 
-## 🎮 Controls
+## Controls
 
 - **Right Control**: Toggle GUI visibility
 - **Close Button**: Hide the GUI (red X button)
@@ -99,23 +99,23 @@ local ANIMATIONS = {
 - **Hover Effects**: Buttons respond to mouse hover
 - **Click Animations**: Satisfying click feedback on all buttons
 
-## 📱 Interface Overview
+## Interface Overview
 
 ### Navigation Sidebar
-- 📊 **Dashboard**: Overview and quick actions
-- 👥 **Players**: Player management and actions
-- 🖥️ **Server**: Server announcements and controls
-- 🔴 **Live Events**: Real-time event monitoring
-- ⚙️ **Settings**: GUI configuration options
+- **Dashboard**: Overview and quick actions
+- **Players**: Player management and actions
+- **Server**: Server announcements and controls
+- **Live Events**: Real-time event monitoring
+- **Settings**: GUI configuration options
 
 ### Action Buttons
 Each page contains contextual action buttons with color coding:
-- 🔵 **Blue (Accent)**: Primary actions (teleport, send, etc.)
-- 🟢 **Green (Success)**: Positive actions (save, enable, etc.)
-- 🟠 **Orange (Warning)**: Cautionary actions (kick, reset, etc.)
-- 🔴 **Red (Destructive)**: Dangerous actions (ban, shutdown, etc.)
+- **Blue (Accent)**: Primary actions (teleport, send, etc.)
+- **Green (Success)**: Positive actions (save, enable, etc.)
+- **Orange (Warning)**: Cautionary actions (kick, reset, etc.)
+- **Red (Destructive)**: Dangerous actions (ban, shutdown, etc.)
 
-## 🔧 Features Breakdown
+## Features Breakdown
 
 ### Responsive Design
 - Adapts to different screen sizes
@@ -132,7 +132,7 @@ Each page contains contextual action buttons with color coding:
 - Protected against non-admin usage
 - Secure player targeting system
 
-## 🎯 Future Enhancements
+## Future Enhancements
 
 Potential additions for future versions:
 - **Theme Switching**: Light mode toggle
@@ -142,7 +142,7 @@ Potential additions for future versions:
 - **Time-based Bans**: Temporary ban system
 - **Multiple Admin Levels**: Different permission levels
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### GUI Not Appearing
 1. Check if you're listed in `ADMIN_USERS`
@@ -159,16 +159,16 @@ Potential additions for future versions:
 2. Check target player is not an admin
 3. Verify player is still in the game
 
-## 📄 License
+## License
 
 This script is provided as-is for educational and entertainment purposes. Feel free to modify and distribute according to your needs.
 
-## 🤝 Contributing
+## Contributing
 
 Found a bug or want to suggest a feature? Create an issue or submit a pull request!
 
 ---
 
-**Made with ❤️ for the Roblox community**
+**Made with care for the Roblox community**
 
 *Apple design principles applied to create the most beautiful admin GUI experience possible.*
