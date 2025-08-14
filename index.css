@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DOORS Guiding Light Design System - Dark atmospheric with blue glowing effects */
+
+@layer base {
+  :root {
+    /* Dark atmospheric background */
+    --background: 220 15% 8%;
+    --foreground: 195 100% 85%;
+
+    /* Card and surfaces */
+    --card: 220 20% 10%;
+    --card-foreground: 195 100% 85%;
+
+    /* Popover surfaces */
+    --popover: 220 25% 12%;
+    --popover-foreground: 195 100% 90%;
+
+    /* Primary - Guiding Light Blue */
+    --primary: 195 100% 60%;
+    --primary-foreground: 220 30% 5%;
+    --primary-glow: 195 100% 75%;
+    --primary-dim: 195 80% 40%;
+
+    /* Secondary - Darker blues */
+    --secondary: 210 50% 15%;
+    --secondary-foreground: 195 100% 85%;
+
+    /* Muted tones */
+    --muted: 220 20% 12%;
+    --muted-foreground: 195 30% 65%;
+
+    /* Accent - Bright cyan */
+    --accent: 180 100% 70%;
+    --accent-foreground: 220 30% 8%;
+
+    /* Destructive - Keep original */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and inputs */
+    --border: 195 50% 20%;
+    --input: 195 40% 15%;
+    --ring: 195 100% 60%;
+
+    /* Guiding Light specific colors */
+    --guiding-light: 195 100% 70%;
+    --guiding-light-glow: 195 100% 80%;
+    --death-screen-bg: 220 25% 4%;
+    --text-glow: 195 100% 85%;
+
+    /* Atmospheric gradients */
+    --gradient-atmospheric: radial-gradient(circle at center top, hsl(195 100% 15% / 0.4) 0%, hsl(220 30% 3%) 40%, hsl(220 40% 2%) 100%);
+    --gradient-guiding-light: radial-gradient(circle, hsl(195 100% 70% / 0.6) 0%, hsl(195 100% 40% / 0.2) 40%, transparent 70%);
+    --gradient-text-glow: linear-gradient(45deg, hsl(195 100% 85%), hsl(180 100% 75%));
+
+    /* Shadows and effects */
+    --shadow-glow: 0 0 30px hsl(195 100% 70% / 0.5);
+    --shadow-intense-glow: 0 0 50px hsl(195 100% 70% / 0.8);
+    --shadow-text: 0 0 20px hsl(195 100% 85% / 0.7);
+
+    --radius: 0.8rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark mode inherits the same DOORS theme */
+  .dark {
+    /* Same as root - always dark atmospheric */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-hidden;
+    background: var(--gradient-atmospheric);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Guiding Light specific animations */
+  @keyframes guidingLightPulse {
+    0%, 100% { 
+      opacity: 0.6;
+      transform: scale(1);
+      filter: blur(0px);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1.1);
+      filter: blur(2px);
+    }
+  }
+
+  @keyframes textGlow {
+    0%, 100% { text-shadow: var(--shadow-text); }
+    50% { text-shadow: var(--shadow-intense-glow); }
+  }
+
+  @keyframes floatSwim {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(2deg); }
+    50% { transform: translateY(-5px) rotate(0deg); }
+    75% { transform: translateY(-15px) rotate(-2deg); }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes particles {
+    0% { transform: translateY(100vh) translateX(0px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) translateX(100px) rotate(360deg); opacity: 0; }
+  }
+
+  /* Underwater bubble animations */
+  @keyframes bubbleRise {
+    0% {
+      transform: translateY(100%) translateX(0) scale(0.8);
+      opacity: 0.5;
+    }
+    10% {
+      transform: translateY(90%) translateX(5px) scale(0.9);
+      opacity: 0.6;
+    }
+    20% {
+      transform: translateY(80%) translateX(-3px) scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(-50vh) translateX(10px) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes waterCaustics {
+    0%, 100% {
+      background-position: 0 0, 0 0;
+    }
+    50% {
+      background-position: 10px 10px, -10px -10px;
+    }
+  }
+
+  @keyframes gentleFloat {
+    0%, 100% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) translateX(5px) rotate(0.5deg);
+    }
+  }
+
+  /* Utility classes */
+  .guiding-light-glow {
+    background: var(--gradient-guiding-light);
+    animation: guidingLightPulse 3s ease-in-out infinite;
+  }
+
+  .text-glow {
+    color: hsl(var(--text-glow));
+    animation: textGlow 2s ease-in-out infinite;
+  }
+
+  .float-swim {
+    animation: floatSwim 4s ease-in-out infinite;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  .typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid hsl(var(--guiding-light));
+    animation: typewriter 2s steps(30) forwards;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--guiding-light-glow));
+    border-radius: 50%;
+    animation: particles 8s linear infinite;
+    box-shadow: 0 0 10px hsl(var(--guiding-light-glow) / 0.8);
+  }
+
+  /* Underwater text effect */
+  .underwater-text {
+    animation: gentleFloat 8s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(173, 216, 255, 0.7);
+    transition: transform 0.3s ease-out;
+  }
+
+  /* Underwater light rays */
+  .underwater-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center,
+      hsl(195 100% 85% / 0.05) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
